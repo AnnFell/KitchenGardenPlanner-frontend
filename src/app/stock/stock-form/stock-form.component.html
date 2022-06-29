@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+  <mat-label>Item name</mat-label>
+  <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="stockItem.name" required>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Item description</mat-label>
+  <input matInput type="text" name="description" placeholder="Description" [(ngModel)]="stockItem.description">
+</mat-form-field>
+<button mat-raised-button color="accent" (click)="handleSaveButton()">
+  <span class="material-icons">add</span> Add new stock item
+</button>
