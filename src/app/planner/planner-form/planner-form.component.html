@@ -1,0 +1,21 @@
+<h3>Add to your planner</h3>
+<mat-form-field appearance="fill">
+  <mat-label>Select a plant type from your stock</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let stockItem of stockList" [value]="stockItem.id">
+      {{stockItem.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Location in garden:</mat-label>
+  <input matInput type="text" name="location" placeholder="Description of location" [(ngModel)]="plant.location">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Sowing date</mat-label>
+  <input matInput type="date" name="date" [(ngModel)]="plant.date">
+</mat-form-field>
+<button mat-raised-button color="accent" (click)="handleSaveButton()">
+  <span class="material-icons">add</span> Add plant to planner
+</button>
+

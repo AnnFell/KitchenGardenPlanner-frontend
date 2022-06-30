@@ -1,7 +1,7 @@
 @import "../../_variables";
+
 :host {
   display: flex;
-  align-items: flex-start;
   flex-direction: column;
-  padding: $spacing-small;
+  padding: $spacing-medium;
 }

@@ -1,0 +1,7 @@
+<mat-list>
+
+  <mat-list-item *ngFor="let plant of plantList">
+    <p>{{plant.type.name}} - {{plant.location}} {{plant.date | date}}</p>
+    <mat-divider [inset]="true"></mat-divider>
+  </mat-list-item>
+</mat-list>

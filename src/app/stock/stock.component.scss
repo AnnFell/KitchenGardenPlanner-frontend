@@ -1,5 +1,8 @@
 @import "../_variables";
 
 :host {
-  padding: $spacing-medium!important;
+  padding: $spacing-medium;
+}
+h2{
+  margin-left: $spacing-small;
 }

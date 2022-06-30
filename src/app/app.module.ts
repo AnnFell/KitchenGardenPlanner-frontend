@@ -17,13 +17,24 @@ import { StockComponent } from './stock/stock.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { DevToolsComponent } from './dev-tools/dev-tools.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PlannerComponent } from './planner/planner.component';
+import { PlannerFormComponent } from './planner/planner-form/planner-form.component';
+import { PlannerListComponent } from './planner/planner-list/planner-list.component';
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
   declarations: [
     AppComponent,
     StockFormComponent,
     StockListComponent,
-    StockComponent
+    StockComponent,
+    DevToolsComponent,
+    DashboardComponent,
+    PlannerComponent,
+    PlannerFormComponent,
+    PlannerListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +49,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatInputModule,
     FormsModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
