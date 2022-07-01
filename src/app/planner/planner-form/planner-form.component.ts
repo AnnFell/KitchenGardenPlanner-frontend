@@ -4,6 +4,8 @@ import {PlantService} from "../../services/plant.service";
 import {StockService} from "../../services/stock.service";
 import {PlannerListComponent} from "../planner-list/planner-list.component";
 import {Stock} from "../../types/stock";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {dateToDateYMDString} from "../../types/dateString";
 
 @Component({
   selector: 'app-planner-form',
@@ -21,7 +23,7 @@ export class PlannerFormComponent implements OnInit {
       description: "",
       available: true
     },
-    date: new Date(Date.now()),
+    date: dateToDateYMDString(new Date(Date.now())),
     location: "",
     harvested: false
   }
@@ -45,5 +47,10 @@ export class PlannerFormComponent implements OnInit {
     this.plantService.save(this.plant).subscribe(
       () => this.plannerList.getAll()
     );
+  }
+
+  updateDate($event: MatDatepickerInputEvent<unknown, unknown | null>) {
+    let date: Date = $event.value as Date;
+    this.plant.date = dateToDateYMDString(date);
   }
 }
