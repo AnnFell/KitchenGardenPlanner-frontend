@@ -23,6 +23,7 @@ import { PlannerComponent } from './planner/planner.component';
 import { PlannerFormComponent } from './planner/planner-form/planner-form.component';
 import { PlannerListComponent } from './planner/planner-list/planner-list.component';
 import {MatSelectModule} from "@angular/material/select";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatSelectModule} from "@angular/material/select";
     FormsModule,
     MatTableModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

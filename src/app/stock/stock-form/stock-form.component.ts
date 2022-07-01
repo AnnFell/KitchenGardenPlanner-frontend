@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {StockItem} from "../../types/stock-item";
+import {Stock} from "../../types/stock";
 import {StockService} from "../../services/stock.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {StockListComponent} from "../stock-list/stock-list.component";
@@ -12,10 +12,11 @@ import {StockListComponent} from "../stock-list/stock-list.component";
 export class StockFormComponent implements OnInit {
   @Input() stockList!: StockListComponent;
 
-  stockItem: StockItem = {
+  item: Stock = {
     id: 0,
     name: "",
-    description: ""
+    description: "",
+    available: true
   }
 
   constructor(public _stockService: StockService, private _snackBar: MatSnackBar) {
@@ -25,22 +26,23 @@ export class StockFormComponent implements OnInit {
   }
 
   handleSaveButton() {
-    this._stockService.save(this.stockItem).subscribe(
+    this._stockService.save(this.item).subscribe(
       result => {
         console.log(result);
-        this.openSnackBar(`Stock item ${this.stockItem.name} was added`, "Close");
+        this.openSnackBar(`Stock item ${this.item.name} was added`, "Close");
         this.stockList.getAll();
-        this.stockItem = {
+        this.item = {
           id: 0,
           name: "",
-          description: ""
+          description: "",
+          available: true
         }
       }
     )
   }
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action);
+    this._snackBar.open(message, action, {duration: 3000});
   }
 
 }

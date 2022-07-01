@@ -15,6 +15,7 @@ export class PlantService {
   }
 
   save(plant: Plant) {
-    return this.http.post('http://localhost:8080/stock', plant)
+    console.log("saving", plant);
+    return this.http.post('http://localhost:8080/plant', plant)
   }
 }

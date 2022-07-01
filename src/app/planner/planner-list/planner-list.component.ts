@@ -8,7 +8,7 @@ import {Plant} from "../../types/plant";
   styleUrls: ['./planner-list.component.scss']
 })
 export class PlannerListComponent implements OnInit {
-  plantList: any = [];
+  plantList: Plant[] | undefined;
 
   constructor(private plantService: PlantService) {
   }
@@ -19,7 +19,7 @@ export class PlannerListComponent implements OnInit {
 
   getAll() {
     this.plantService.getAll().subscribe(
-      data => this.plantList = data
+      data => this.plantList = data as Plant[]
     )
   }
 

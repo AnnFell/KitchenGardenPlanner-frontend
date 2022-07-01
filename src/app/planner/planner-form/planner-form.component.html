@@ -1,7 +1,7 @@
 <h3>Add to your planner</h3>
 <mat-form-field appearance="fill">
-  <mat-label>Select a plant type from your stock</mat-label>
-  <mat-select>
+  <mat-label>Select an item from your stock</mat-label>
+  <mat-select [(ngModel)]="plant.type.id">
     <mat-option *ngFor="let stockItem of stockList" [value]="stockItem.id">
       {{stockItem.name}}
     </mat-option>

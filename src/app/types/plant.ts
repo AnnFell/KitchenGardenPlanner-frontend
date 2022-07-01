@@ -1,8 +1,8 @@
-import {StockItem} from "./stock-item";
+import {Stock} from "./stock";
 
 export type Plant = {
   id: Number;
-  type: StockItem;
+  type: Stock;
   date: Date;
   location: string;
   harvested: false;

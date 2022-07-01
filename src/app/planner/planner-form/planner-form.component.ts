@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Plant} from "../../types/plant";
 import {PlantService} from "../../services/plant.service";
-import {StockItem} from "../../types/stock-item";
 import {StockService} from "../../services/stock.service";
+import {PlannerListComponent} from "../planner-list/planner-list.component";
+import {Stock} from "../../types/stock";
 
 @Component({
   selector: 'app-planner-form',
@@ -10,20 +11,22 @@ import {StockService} from "../../services/stock.service";
   styleUrls: ['./planner-form.component.scss']
 })
 export class PlannerFormComponent implements OnInit {
+  @Input() plannerList!: PlannerListComponent;
+
   plant: Plant = {
     id: 0,
     type: {
       id: 0,
       name: "",
-      description: ""
+      description: "",
+      available: true
     },
     date: new Date(Date.now()),
     location: "",
     harvested: false
   }
 
-  stockList: any = [];
-
+  stockList: Stock[] | undefined;
 
   constructor(private plantService: PlantService, private stockService: StockService) {
   }
@@ -34,11 +37,13 @@ export class PlannerFormComponent implements OnInit {
 
   getAllStockItems() {
     this.stockService.getAll().subscribe(
-      data => this.stockList = data
+      data => this.stockList = data as Stock[]
     );
   }
 
   handleSaveButton() {
-    console.log("Do it!");
+    this.plantService.save(this.plant).subscribe(
+      () => this.plannerList.getAll()
+    );
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {StockItem} from "../../types/stock-item";
+import {Stock} from "../../types/stock";
 import {StockService} from "../../services/stock.service";
 
 @Component({
@@ -8,8 +8,7 @@ import {StockService} from "../../services/stock.service";
   styleUrls: ['./stock-list.component.scss']
 })
 export class StockListComponent implements OnInit {
-  // stockItems: StockItem[] = [];
-  stockItems: any = [];
+  stockList: Stock[] | undefined;
 
   constructor(private stockService: StockService) {
   }
@@ -20,8 +19,15 @@ export class StockListComponent implements OnInit {
 
   getAll() {
     this.stockService.getAll().subscribe(
-      data => this.stockItems = data
+      data => this.stockList = data as Stock[]
     )
+  }
+
+  deleteStockItem(id: number) {
+    console.log("Deleting " + id);
+    this.stockService.delete(id).subscribe(
+      () => this.getAll()
+    );
   }
 
 }
