@@ -7,7 +7,6 @@ export type Stock = {
   latinName: string;
   description: string;
   brand: string;
-  perennial: boolean;
   lightPreference: LightPreference;
   available: boolean;
   periods: Period[];
@@ -21,7 +20,6 @@ export const defaultStockVariable: Stock = {
   latinName: "",
   description: "",
   brand: "",
-  perennial: false,
   lightPreference: LightPreference.FULL_SUN,
   available: true,
   periods: [],

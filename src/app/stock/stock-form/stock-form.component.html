@@ -1,86 +1,95 @@
-<mat-form-field appearance="fill">
-  <mat-label>Item name</mat-label>
-  <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="item.name">
-</mat-form-field>
+<mat-expansion-panel hideToggle>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>add</mat-icon>
+      Add an item to your stock
+    </mat-panel-title>
+  </mat-expansion-panel-header>
 
-<mat-form-field appearance="fill">
-  <mat-label>Latin name</mat-label>
-  <input matInput type="text" name="latin-name" placeholder="Latin name" [(ngModel)]="item.latinName">
-</mat-form-field>
+  <!--  Form for stock -->
+  <mat-form-field appearance="fill">
+    <mat-label>Item name</mat-label>
+    <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="item.name">
+  </mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Item description</mat-label>
-  <input matInput type="text" name="description" placeholder="Description" [(ngModel)]="item.description">
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Latin name</mat-label>
+    <input matInput type="text" name="latin-name" placeholder="Latin name" [(ngModel)]="item.latinName">
+  </mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Brand name</mat-label>
-  <input matInput type="text" name="brand-name" placeholder="brand-name" [(ngModel)]="item.brand">
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Item description</mat-label>
+    <input matInput type="text" name="description" placeholder="Description" [(ngModel)]="item.description">
+  </mat-form-field>
 
-<section class="periods">
-  <!--Adding periods-->
-  <mat-card *ngFor="let period of item.periods" class="periods__card">
-    <mat-form-field appearance="fill">
-      <mat-label>Select an activity period</mat-label>
-      <mat-select [(ngModel)]="period.type" placeholder="">
-        <mat-option *ngFor="let type of plantEventTypes" [value]="type">
-          {{type}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Brand name</mat-label>
+    <input matInput type="text" name="brand-name" placeholder="brand-name" [(ngModel)]="item.brand">
+  </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>First month of period</mat-label>
-      <mat-select [(ngModel)]="period.startMonth">
-        <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
-          {{type}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+  <section class="periods">
+    <!--Adding periods-->
+    <mat-card *ngFor="let period of item.periods" class="periods__card">
+      <mat-form-field appearance="fill">
+        <mat-label>Select an activity period</mat-label>
+        <mat-select [(ngModel)]="period.type" placeholder="">
+          <mat-option *ngFor="let type of plantEventTypes" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Last month of period</mat-label>
-      <mat-select [(ngModel)]="period.endMonth">
-        <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
-          {{type}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>First month of period</mat-label>
+        <mat-select [(ngModel)]="period.startMonth">
+          <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-    <button mat-icon-button color="primary" (click)="removePeriod(period)">
-      <mat-icon>delete</mat-icon>
+      <mat-form-field appearance="fill">
+        <mat-label>Last month of period</mat-label>
+        <mat-select [(ngModel)]="period.endMonth">
+          <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
+            {{type}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-icon-button color="primary" (click)="removePeriod(period)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card>
+    <!-- End of periods-->
+
+    <button mat-raised-button class="periods__add-button" (click)="addPeriod()">
+      <mat-icon>add</mat-icon>
+      add another period
     </button>
-  </mat-card>
-  <!-- End of periods-->
+  </section>
 
-  <button mat-raised-button class="periods__add-button" (click)="addPeriod()">
-    <mat-icon>add</mat-icon>
-    add another period
+  <mat-form-field appearance="fill">
+    <mat-label>Preferred amount of light</mat-label>
+    <mat-select [(ngModel)]="item.lightPreference">
+      <mat-option *ngFor="let type of lightTypes" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Space between rows (in cm)</mat-label>
+    <input matInput type="number" name="space-between-rows" min="0" [(ngModel)]="item.spaceBetweenRows">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Space between plants (in cm)</mat-label>
+    <input matInput type="number" name="space-between-plants" min="0" [(ngModel)]="item.spaceBetweenPlants">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="handleSaveButton()">
+    <span class="material-icons">add</span> Add new stock item
   </button>
-</section>
 
-<mat-form-field appearance="fill">
-  <mat-label>Preferred amount of light</mat-label>
-  <mat-select [(ngModel)]="item.lightPreference">
-    <mat-option *ngFor="let type of lightTypes" [value]="type">
-      {{type}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label>Space between rows (in cm)</mat-label>
-  <input matInput type="number" name="space-between-rows" min="0" [(ngModel)]="item.spaceBetweenRows">
-</mat-form-field>
-<mat-form-field appearance="fill">
-  <mat-label>Space between plants (in cm)</mat-label>
-  <input matInput type="number" name="space-between-plants" min="0" [(ngModel)]="item.spaceBetweenPlants">
-</mat-form-field>
-
-<button mat-raised-button color="primary" (click)="handleSaveButton()">
-  <span class="material-icons">add</span> Add new stock item
-</button>
-
-<!--TODO remove this before deploy-->
-{{item | json}}
+  <!--  End form for stock -->
+</mat-expansion-panel>

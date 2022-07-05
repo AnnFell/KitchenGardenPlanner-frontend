@@ -24,3 +24,14 @@
     margin: $spacing-small;
   }
 }
+
+.mat-expansion-panel-header {
+  background-color: $color-amber!important;
+  &.mat-expanded{
+    margin-bottom: $spacing-medium;
+  }
+}
+
+.mat-form-field {
+  display: block !important;
+}
