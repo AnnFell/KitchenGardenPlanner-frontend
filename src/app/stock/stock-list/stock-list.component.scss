@@ -1,0 +1,7 @@
+@import "../../_variables";
+.stocklist{
+  &__buttons{
+    display: flex;
+    gap:$spacing-small;
+  }
+}

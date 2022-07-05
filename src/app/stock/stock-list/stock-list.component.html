@@ -20,12 +20,14 @@
     </ul>
 
     <aside class="stocklist__buttons">
-      <button mat-icon-button color="primary">
-        <mat-icon *ngIf="item.available">add_circle_outline</mat-icon>
-        <mat-icon *ngIf="!item.available">shopping_basket</mat-icon>
+      <button mat-flat-button color="primary" *ngIf="item.available">
+        <mat-icon>add_circle_outline</mat-icon> Add to planner
       </button>
-      <button mat-icon-button color="warn" (click)="deleteStockItem(item.id)">
-        <mat-icon>delete_outline</mat-icon>
+      <button mat-flat-button color="accent" *ngIf="item.available" (click)="archiveStock(item)">
+        <mat-icon>inventory_2</mat-icon> Archive stock
+      </button>
+      <button mat-flat-button color="warn" (click)="deleteStockItem(item.id)">
+        <mat-icon>delete_outline</mat-icon> Delete stock
       </button>
     </aside>
 
