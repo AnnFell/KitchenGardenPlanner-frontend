@@ -20,8 +20,7 @@ export class PlannerFormComponent implements OnInit {
     type: {
       id: 0,
       name: "",
-      description: "",
-      available: true
+      periods: []
     },
     date: dateToDateYMDString(new Date(Date.now())),
     location: "",

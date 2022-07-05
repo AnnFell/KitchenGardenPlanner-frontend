@@ -1,11 +1,57 @@
+<div>{{item | json}}</div>
+
+
 <mat-form-field appearance="fill">
   <mat-label>Item name</mat-label>
   <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="item.name">
 </mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Latin name</mat-label>
+  <input matInput type="text" name="latin-name" placeholder="Latin name" [(ngModel)]="item.latinName">
+</mat-form-field>
+
 <mat-form-field appearance="fill">
   <mat-label>Item description</mat-label>
   <input matInput type="text" name="description" placeholder="Description" [(ngModel)]="item.description">
 </mat-form-field>
-<button mat-raised-button color="accent" (click)="handleSaveButton()">
+
+<mat-form-field appearance="fill">
+  <mat-label>Brand name</mat-label>
+  <input matInput type="text" name="brand-name" placeholder="brand-name" [(ngModel)]="item.brand">
+</mat-form-field>
+
+<section class="periods">
+  <!--Adding periods-->
+  <app-period-form *ngFor="let period of item.periods" (periodEventEmitter)="updatePeriod(period)"></app-period-form>
+  <button mat-raised-button class="periods__add-button" (click)="addPeriod()">
+    <mat-icon>add</mat-icon>
+    add another period
+  </button>
+</section>
+
+<!--<mat-form-field appearance="fill">-->
+<!--    <mat-checkbox name="perennial" [(ngModel)]="item.perennial">Perennial</mat-checkbox>-->
+<!--</mat-form-field>-->
+
+<mat-form-field appearance="fill">
+  <mat-label>Preferred amount of light</mat-label>
+  <mat-select [(ngModel)]="item.lightPreference">
+    <mat-option *ngFor="let type of lightTypes" [value]="type">
+      {{type}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Space between rows (in cm)</mat-label>
+  <input matInput type="number" name="space-between-rows" min="0" [(ngModel)]="item.spaceBetweenRows">
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label>Space between plants (in cm)</mat-label>
+  <input matInput type="number" name="space-between-plants" min="0" [(ngModel)]="item.spaceBetweenPlants">
+</mat-form-field>
+
+<button mat-raised-button color="primary" (click)="handleSaveButton()">
   <span class="material-icons">add</span> Add new stock item
 </button>

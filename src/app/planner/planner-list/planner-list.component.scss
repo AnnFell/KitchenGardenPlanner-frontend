@@ -1,0 +1,117 @@
+@import "../../_variables";
+$row-index-width: 8rem;
+
+.gantt {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  padding: $spacing-medium;
+}
+
+.chart {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+
+  &-row {
+    display: grid;
+    grid-template-columns: $row-index-width 1fr;
+    background-color: white;
+
+    &:nth-child(odd) {
+      background-color: #DCDCDC;
+    }
+  }
+}
+
+.chart-period {
+  color: #fff;
+  background-color: #708090 !important;
+  border-bottom: 2px solid $color-bluegrey-dark;
+  grid-template-columns: 8rem repeat(12, 1fr);
+}
+
+.chart-period > span {
+  text-align: center;
+  font-size: 13px;
+  align-self: center;
+  font-weight: bold;
+  padding: 15px 0;
+}
+
+.chart-lines {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  grid-template-columns: $row-index-width repeat(12, 1fr);
+
+  .active {
+    background-color: rgba(#673ab7, 0.2);
+  }
+}
+
+.chart-lines > span {
+  display: block;
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.chart-row-item {
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.04);
+  border: 1px solid $color-bluegrey-dark;
+  border-top: 0;
+  border-left: 0;
+  padding: $spacing-small 0.5rem;
+  font-weight: bold;
+  width: $row-index-width;
+}
+
+.chart-row-bars {
+  list-style: none;
+  display: grid;
+  padding: 15px 0;
+  margin: 0;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px 0;
+  border-bottom: 1px solid $color-bluegrey-dark;
+}
+
+li {
+  text-align: left;
+  background-color: #708090;
+  padding: 5px 15px;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+ul .chart-li {
+  max-height: 0.2rem;
+
+  &-SOWING_INDOORS {
+    background-color: $color-indigo;
+  }
+
+  &-SOWING_OUTDOORS {
+    background-color: $color-blue;
+  }
+
+  &-PLANT_OUT {
+    background-color: $color_green;
+  }
+
+  &-FLOWERING {
+    background-color: $color-pink;
+  }
+
+  &-HARVEST {
+    background-color: $color-amber;
+  }
+
+  &-OTHER {
+    background-color: $color-grey;
+  }
+}

@@ -1,10 +1,14 @@
 <mat-toolbar color="primary" class="nav">
-  <span>The Kitchen Garden Planner</span>
-  <button mat-icon-button class="example-icon" aria-label="Menu icon">
+  <span routerLink="">The Kitchen Garden Planner</span>
+
+  <button mat-icon-button aria-label="Menu icon" [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="">Dashboard</button>
+    <button mat-menu-item routerLink="/stock">Stock</button>
+    <button mat-menu-item routerLink="/planner">Planner</button>
+  </mat-menu>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
-
-<app-dev-tools></app-dev-tools>

@@ -1,8 +1,8 @@
 <mat-list>
   <mat-list-item *ngFor="let item of stockList">
     <mat-icon mat-list-icon>chevron_right</mat-icon>
-    <div mat-line>{{item.name}} </div>
-    <div mat-line> {{item.description}} </div>
+    <div mat-line>{{item.name}} - {{item.latinName}} - {{item.brand}}</div>
+    <div mat-line> {{item.description}} {{item.lightPreference}}</div>
     <button mat-icon-button (click)="deleteStockItem(item.id)">
       <mat-icon>delete_outline</mat-icon>
     </button>

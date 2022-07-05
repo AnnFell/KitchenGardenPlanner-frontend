@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DevToolsComponent } from './dev-tools.component';
+import { PeriodFormComponent } from './period-form.component';
 
-describe('DevToolsComponent', () => {
-  let component: DevToolsComponent;
-  let fixture: ComponentFixture<DevToolsComponent>;
+describe('PeriodFormComponent', () => {
+  let component: PeriodFormComponent;
+  let fixture: ComponentFixture<PeriodFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DevToolsComponent ]
+      declarations: [ PeriodFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DevToolsComponent);
+    fixture = TestBed.createComponent(PeriodFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

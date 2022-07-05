@@ -1,7 +1,25 @@
-<mat-list>
+<section class="gantt">
+  <div class="chart">
+    <div class="chart-row chart-period">
+      <div class="chart-row-item"></div>
+      <span *ngFor="let month of monthList">{{month}}</span>
+    </div>
 
-  <mat-list-item *ngFor="let plant of plantList">
-    <p>{{plant.type.name}} - {{plant.location}} {{plant.date | date}}</p>
-    <mat-divider [inset]="true"></mat-divider>
-  </mat-list-item>
-</mat-list>
+    <div class="chart-row chart-lines">
+      <span *ngFor="let dummy of ' '.repeat(13).split(''), let x = index"
+            class="{{x==currMonthNumber+1?'active':''}}"></span>
+    </div>
+
+    <div class="chart-row" *ngFor="let plant of plantList">
+      <div class="chart-row-item">{{plant.type.name}}</div>
+      <ul class="chart-row-bars">
+        <li *ngFor="let period of plant.type.periods"
+            class="chart-li chart-li-{{period.type}}"
+            style="grid-column:{{period.startMonth}}/{{(period.endMonth+1)}}"
+            matTooltip="{{period.type}}">
+          &nbsp;
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -17,7 +17,6 @@ import {StockComponent} from './stock/stock.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatListModule} from "@angular/material/list";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
-import {DevToolsComponent} from './dev-tools/dev-tools.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {PlannerComponent} from './planner/planner.component';
 import {PlannerFormComponent} from './planner/planner-form/planner-form.component';
@@ -26,6 +25,10 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
+import {PeriodFormComponent} from './stock/stock-form/period-form/period-form.component';
+import {MatCardModule} from "@angular/material/card";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -33,11 +36,11 @@ import {MatNativeDateModule} from "@angular/material/core";
     StockFormComponent,
     StockListComponent,
     StockComponent,
-    DevToolsComponent,
     DashboardComponent,
     PlannerComponent,
     PlannerFormComponent,
-    PlannerListComponent
+    PlannerListComponent,
+    PeriodFormComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,10 @@ import {MatNativeDateModule} from "@angular/material/core";
     MatSelectModule,
     MatCheckboxModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatCardModule,
+    MatTooltipModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

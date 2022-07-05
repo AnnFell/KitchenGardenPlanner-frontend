@@ -5,3 +5,14 @@
   flex-direction: column;
   padding: $spacing-medium;
 }
+
+.periods {
+  flex-wrap: wrap;
+  display: flex;
+  gap: $spacing-medium;
+
+  & __add-button {
+    flex-basis: 100%;
+    margin: $spacing-small;
+  }
+}

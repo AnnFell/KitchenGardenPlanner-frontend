@@ -3,7 +3,7 @@ import {DateYMDString} from "./dateString";
 
 export type Plant = {
   id: Number;
-  type: Stock;
+  type: Pick<Stock, 'id' | 'name' | 'periods'>;
   date: DateYMDString;
   location: string;
   harvested: false;
