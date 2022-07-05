@@ -11,7 +11,17 @@
     </div>
 
     <div class="chart-row" *ngFor="let plant of plantList">
-      <div class="chart-row-item">{{plant.type.name}}</div>
+
+      <div class="chart-row-item">
+        <p>{{plant.type.name}}</p>
+        <button mat-icon-button (click)="handleDeleteButton(plant.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+
       <ul class="chart-row-bars">
         <li *ngFor="let period of plant.type.periods"
             class="chart-li chart-li-{{period.type}}"

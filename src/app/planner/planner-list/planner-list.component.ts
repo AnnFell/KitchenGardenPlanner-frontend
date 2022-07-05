@@ -25,8 +25,9 @@ export class PlannerListComponent implements OnInit {
     );
   }
 
-  // TODO: remove this
-  logMyList() {
-    console.log(this.plantList);
+  handleDeleteButton(id: number) {
+    this.plantService.delete(id).subscribe(
+      () => this.getAll()
+    );
   }
 }

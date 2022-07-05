@@ -2,7 +2,7 @@ import {Stock} from "./stock";
 import {dateToDateYMDString, DateYMDString} from "./dateString";
 
 export type Plant = {
-  id: Number;
+  id: number;
   type: Pick<Stock, 'id' | 'name' | 'periods'>;
   date: DateYMDString;
   location: string;

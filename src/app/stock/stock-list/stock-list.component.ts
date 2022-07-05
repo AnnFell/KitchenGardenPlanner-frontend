@@ -25,7 +25,6 @@ export class StockListComponent implements OnInit {
   }
 
   deleteStockItem(id: number) {
-    console.log("Deleting " + id);
     this.stockService.delete(id).subscribe(
       () => this.getAll()
     );
