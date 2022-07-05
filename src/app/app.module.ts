@@ -29,6 +29,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatExpansionModule} from "@angular/material/expansion";
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     PlannerComponent,
     PlannerFormComponent,
     PlannerListComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,

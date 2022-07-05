@@ -6,7 +6,7 @@ export type Plant = {
   type: Pick<Stock, 'id' | 'name' | 'periods'>;
   date: DateYMDString;
   location: string;
-  harvested: false;
+  harvested: boolean;
 }
 
 export const defaultPlantVariable: Plant = {

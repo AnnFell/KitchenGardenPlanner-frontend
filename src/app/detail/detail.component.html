@@ -1,0 +1,28 @@
+<button mat-flat-button color="primary" routerLink="/planner" class="back-button">
+  <mat-icon>arrow_back</mat-icon>
+  Back to planner
+</button>
+
+<h2 class="title">Details of {{plant.type.name}}</h2>
+<section class="content">
+  <p>Latin name: {{plant.type.latinName}}</p>
+  <p>Location: {{plant.location}}</p>
+  <p>Light preference: {{plant.type.lightPreference}}</p>
+  <p>Sown on: {{plant.date | date}}</p>
+  <p>Harvested: {{plant.harvested ? "yes" : "no"}}</p>
+  <ul>
+    <li *ngFor="let period of plant.type.periods">
+      {{period.type}}, start month: {{period.startMonth}}, last month: {{period.endMonth}}
+    </li>
+  </ul>
+
+  <aside class="actions">
+    <button mat-flat-button color="accent" *ngIf="!plant.harvested" (click)="handleHarvestedButton(plant)">
+      <mat-icon>shopping_basket</mat-icon>
+      Set as harvested
+    </button>
+  </aside>
+
+</section>
+
+

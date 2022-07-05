@@ -1,0 +1,20 @@
+@import "../_variables";
+
+:host {
+  margin: $spacing-medium;
+}
+
+
+.back-button {
+  margin-top: $spacing-medium;
+}
+
+
+.title, .content {
+  margin: $spacing-medium;
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-small;
+}

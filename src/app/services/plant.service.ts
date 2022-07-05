@@ -14,12 +14,17 @@ export class PlantService {
     return this.http.get("http://localhost:8080/plant")
   }
 
+  findById(id: number) {
+    return this.http.get('http://localhost:8080/plant/' + id);
+  }
+
   save(plant: Plant) {
     console.log("saving", plant);
     return this.http.post('http://localhost:8080/plant', plant)
   }
 
-  delete(id: number){
+  delete(id: number) {
     return this.http.delete('http://localhost:8080/plant/' + id)
   }
+
 }
