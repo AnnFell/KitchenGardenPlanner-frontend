@@ -9,8 +9,8 @@ export type DateYMString = `${YYYY}-${MM}`;
 export type DateYMDString = `${DateYMString}-${DD}`;
 
 function dateToDateYMDString(date: Date): DateYMDString {
-  const month: String = date.getMonth().toString().padStart(2, "0");
-  const day: String = date.getDay().toString().padStart(2, "0");
+  const month: String = (date.getMonth()+1).toString().padStart(2, "0");
+  const day: String = date.getDate().toString().padStart(2, "0");
   return `${date.getFullYear()}-${month}-${day}` as DateYMDString;
 }
 

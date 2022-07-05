@@ -23,9 +23,15 @@
       </div>
 
       <ul class="chart-row-bars">
+        <li class="chart-li chart-li-DATE" [style.grid-column]="getColumnsBasedOnDate(plant.date)"
+            matTooltip="Sown on {{plant.date | date}}">
+          <span [style.width]="getPercentageOfMonth(plant.date)">
+            &nbsp;
+          </span>
+        </li>
         <li *ngFor="let period of plant.type.periods"
             class="chart-li chart-li-{{period.type}}"
-            style="grid-column:{{period.startMonth}}/{{(period.endMonth+1)}}"
+            [style.grid-column]="getColumnsBasedOnMonths(period.startMonth,period.endMonth)"
             matTooltip="{{period.type}}">
           &nbsp;
         </li>

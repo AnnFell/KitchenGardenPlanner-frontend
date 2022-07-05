@@ -30,4 +30,19 @@ export class PlannerListComponent implements OnInit {
       () => this.getAll()
     );
   }
+
+  getPercentageOfMonth(date: string): string {
+    let day = parseInt(date.substring(8, 10));
+    return ((100 / 31) * day) + "%";
+  }
+
+  getColumnsBasedOnDate(date: string) {
+    const monthNumber = parseInt(date.substring(5, 7), 10);
+    return `${monthNumber}/${monthNumber}`;
+  }
+
+  getColumnsBasedOnMonths(startMonth: number, endMonth: number) {
+    return `${startMonth}/${endMonth + 1}`;
+  }
+
 }

@@ -46,8 +46,7 @@ export class PlannerFormComponent implements OnInit {
   }
 
   updateDate($event: MatDatepickerInputEvent<unknown, unknown | null>) {
-    let date: Date = $event.value as Date;
-    this.plant.date = dateToDateYMDString(date);
+    this.plant.date = dateToDateYMDString($event.value as Date);
   }
 
   openSnackBar(message: string, action: string) {

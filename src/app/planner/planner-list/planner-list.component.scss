@@ -91,6 +91,21 @@ li {
 ul .chart-li {
   max-height: 0.2rem;
 
+  &-DATE {
+    background-color: rgba(0, 0, 0, 0);
+    color: $color-bluegrey-dark;
+    overflow: visible;
+    font-size: small;
+    padding: 0;
+
+    span {
+      box-sizing: border-box;
+      display: inline-block;
+      height: 10px;
+      border-right: 10px deeppink solid;
+    }
+  }
+
   &-SOWING_INDOORS {
     background-color: $color-indigo;
   }
