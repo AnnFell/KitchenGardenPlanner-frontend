@@ -25,10 +25,10 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from "@angular/material/core";
-import {PeriodFormComponent} from './stock/stock-form/period-form/period-form.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatMenuModule} from "@angular/material/menu";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
   declarations: [
@@ -40,7 +40,6 @@ import {MatMenuModule} from "@angular/material/menu";
     PlannerComponent,
     PlannerFormComponent,
     PlannerListComponent,
-    PeriodFormComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +61,8 @@ import {MatMenuModule} from "@angular/material/menu";
     MatNativeDateModule,
     MatCardModule,
     MatTooltipModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

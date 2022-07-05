@@ -9,6 +9,7 @@ import {StockService} from "../../services/stock.service";
 })
 export class StockListComponent implements OnInit {
   stockList: Stock[] | undefined;
+  panelOpenState: boolean = false;
 
   constructor(private stockService: StockService) {
   }

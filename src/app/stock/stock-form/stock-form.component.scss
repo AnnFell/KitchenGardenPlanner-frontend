@@ -7,9 +7,17 @@
 }
 
 .periods {
-  flex-wrap: wrap;
   display: flex;
-  gap: $spacing-medium;
+  flex-wrap: wrap;
+  gap: $spacing-small;
+  margin-bottom: $spacing-small;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+  }
 
   & __add-button {
     flex-basis: 100%;

@@ -1,14 +1,33 @@
-<mat-list>
-  <mat-list-item *ngFor="let item of stockList">
-    <mat-icon mat-list-icon>chevron_right</mat-icon>
-    <div mat-line>{{item.name}} - {{item.latinName}} - {{item.brand}}</div>
-    <div mat-line> {{item.description}} {{item.lightPreference}}</div>
-    <button mat-icon-button (click)="deleteStockItem(item.id)">
-      <mat-icon>delete_outline</mat-icon>
-    </button>
-    <button mat-icon-button>
-      <mat-icon *ngIf="item.available">add_circle_outline</mat-icon>
-      <mat-icon *ngIf="!item.available">shopping_basket</mat-icon>
-    </button>
-  </mat-list-item>
-</mat-list>
+<mat-accordion class="stocklist">
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+                       *ngFor="let item of stockList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{item.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? '' : item.latinName + " - " + item.brand}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <p>{{item.description}}</p>
+    <p>{{item.lightPreference}}</p>
+    <ul>
+      <li *ngFor="let period of item.periods">
+        {{period.type}}, start: {{period.startMonth}}, end: {{period.endMonth}}
+      </li>
+    </ul>
+
+    <aside class="stocklist__buttons">
+      <button mat-icon-button color="primary">
+        <mat-icon *ngIf="item.available">add_circle_outline</mat-icon>
+        <mat-icon *ngIf="!item.available">shopping_basket</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteStockItem(item.id)">
+        <mat-icon>delete_outline</mat-icon>
+      </button>
+    </aside>
+
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,6 +1,3 @@
-<div>{{item | json}}</div>
-
-
 <mat-form-field appearance="fill">
   <mat-label>Item name</mat-label>
   <input matInput type="text" name="name" placeholder="Name" [(ngModel)]="item.name">
@@ -23,16 +20,45 @@
 
 <section class="periods">
   <!--Adding periods-->
-  <app-period-form *ngFor="let period of item.periods" (periodEventEmitter)="updatePeriod(period)"></app-period-form>
+  <mat-card *ngFor="let period of item.periods" class="periods__card">
+    <mat-form-field appearance="fill">
+      <mat-label>Select an activity period</mat-label>
+      <mat-select [(ngModel)]="period.type" placeholder="">
+        <mat-option *ngFor="let type of plantEventTypes" [value]="type">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>First month of period</mat-label>
+      <mat-select [(ngModel)]="period.startMonth">
+        <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last month of period</mat-label>
+      <mat-select [(ngModel)]="period.endMonth">
+        <mat-option *ngFor="let type of monthNames" [value]="monthNames.indexOf(type)+1">
+          {{type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-icon-button color="primary" (click)="removePeriod(period)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card>
+  <!-- End of periods-->
+
   <button mat-raised-button class="periods__add-button" (click)="addPeriod()">
     <mat-icon>add</mat-icon>
     add another period
   </button>
 </section>
-
-<!--<mat-form-field appearance="fill">-->
-<!--    <mat-checkbox name="perennial" [(ngModel)]="item.perennial">Perennial</mat-checkbox>-->
-<!--</mat-form-field>-->
 
 <mat-form-field appearance="fill">
   <mat-label>Preferred amount of light</mat-label>
@@ -55,3 +81,6 @@
 <button mat-raised-button color="primary" (click)="handleSaveButton()">
   <span class="material-icons">add</span> Add new stock item
 </button>
+
+<!--TODO remove this before deploy-->
+{{item | json}}

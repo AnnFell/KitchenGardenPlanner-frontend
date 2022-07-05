@@ -20,15 +20,15 @@ export class StockFormComponent implements OnInit {
     ...defaultStockVariable,
   }
 
-
   lightTypes: String[] = Object.keys(LightPreference).filter((v) => isNaN(Number(v)));
+  plantEventTypes: string[] = Object.keys(PlantEventTypes).filter((v) => isNaN(Number(v)));
+  monthNames: string[] = Object.keys(Months).filter((v) => isNaN(Number(v)));
 
   constructor(public _stockService: StockService, private _snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.addPeriod();
-
   }
 
   ngAfterViewInit(): void {
@@ -53,20 +53,15 @@ export class StockFormComponent implements OnInit {
 
   addPeriod() {
     const periodItem: Period = {
-      id: this.item.periods.length,
-      type: PlantEventTypes.HARVEST,
+      id: undefined,
+      type: PlantEventTypes.SOWING_INDOORS,
       startMonth: Months.January,
       endMonth: Months.January
     }
     this.item.periods.push(periodItem);
   }
 
-  updatePeriod(period: Period) {
-    console.log("updating period", period);
-    let currentPeriod = this.item.periods.find(x => x.id == period.id);
-    if (typeof currentPeriod != undefined) {
-      currentPeriod = {...currentPeriod, ...period};
-    }
-
+  removePeriod(period: Period) {
+    this.item.periods = this.item.periods.filter(x => period !== x);
   }
 }
