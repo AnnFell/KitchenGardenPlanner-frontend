@@ -13,14 +13,14 @@ export class StockService {
   }
 
   getAll() {
-    return this.http.get("http://localhost:8080/stock")
+    return this.http.get("http://localhost:8080/api/stock")
   }
 
   save(item: Stock) {
-    return this.http.post('http://localhost:8080/stock', item)
+    return this.http.post('http://localhost:8080/api/stock', item)
   }
 
   delete(id: number){
-    return this.http.delete('http://localhost:8080/stock/' + id)
+    return this.http.delete('http://localhost:8080/api/stock/' + id)
   }
 }

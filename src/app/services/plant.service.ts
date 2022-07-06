@@ -11,20 +11,20 @@ export class PlantService {
   }
 
   getAll() {
-    return this.http.get("http://localhost:8080/plant")
+    return this.http.get("http://localhost:8080/api/plant")
   }
 
   findById(id: number) {
-    return this.http.get('http://localhost:8080/plant/' + id);
+    return this.http.get('http://localhost:8080/api/plant/' + id);
   }
 
   save(plant: Plant) {
     console.log("saving", plant);
-    return this.http.post('http://localhost:8080/plant', plant)
+    return this.http.post('http://localhost:8080/api/plant', plant)
   }
 
   delete(id: number) {
-    return this.http.delete('http://localhost:8080/plant/' + id)
+    return this.http.delete('http://localhost:8080/api/plant/' + id)
   }
 
 }
