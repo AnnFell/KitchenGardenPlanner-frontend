@@ -42,7 +42,10 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('id', this.authService.currentUser.id.toString());
         this.router.navigate(['/dashboard']);
         this.openSnackBar("You are logged in, " + this.authService.currentUser.userName, "OK");
-      }, error => this.openSnackBar("Login failed, check your details and try again", "Close")
+      }, error => {
+        console.log(error);
+        this.openSnackBar(error.error.message, "Close");
+      }
     )
   }
 
