@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {AuthService} from "./services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'KitchenGardenPlanner';
+  title = 'The Kitchen Garden Planner';
+  loggedIn: boolean = false;
+
+  constructor(private authService: AuthService, private router: Router) {
+  }
+
+  ngOnInit() {
+    if (typeof this.authService.currentUser != undefined) {
+      this.loggedIn = true;
+    }
+  }
+
+  handleLogOut() {
+    sessionStorage.clear();
+    this.router.navigate(['']);
+  }
 }

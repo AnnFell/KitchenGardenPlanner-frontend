@@ -1,0 +1,11 @@
+@import "../_variables";
+
+button {
+  margin: $spacing-medium;
+}
+
+.user-form {
+  padding: $spacing-medium;
+  display: flex;
+  flex-direction: column;
+}

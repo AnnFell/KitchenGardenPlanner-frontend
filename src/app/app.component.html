@@ -1,13 +1,14 @@
 <mat-toolbar color="primary" class="nav">
-  <span routerLink="">The Kitchen Garden Planner</span>
+  <span routerLink="">{{title}}</span>
 
   <button mat-icon-button aria-label="Menu icon" [matMenuTriggerFor]="menu">
     <mat-icon>menu</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="">Dashboard</button>
+    <button mat-menu-item routerLink="/dashboard">Dashboard</button>
     <button mat-menu-item routerLink="/stock">Stock</button>
     <button mat-menu-item routerLink="/planner">Planner</button>
+    <button mat-menu-item *ngIf="loggedIn" (click)="handleLogOut()">Log out</button>
   </mat-menu>
 </mat-toolbar>
 

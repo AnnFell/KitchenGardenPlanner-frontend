@@ -1,0 +1,28 @@
+<div *ngIf="!loggedIn && !wantsToRegister" class="user-form">
+  <h2>Log in here</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input type="text" matInput [(ngModel)]="user.userName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [(ngModel)]="user.password">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="handleLoginButton()">Log in</button>
+  <button mat-flat-button color="accent" (click)="showRegisterButton()">No account yet? Sign up here</button>
+</div>
+
+<div class="user-form" *ngIf="!loggedIn && wantsToRegister">
+  <h2>Sign up here</h2>
+  <mat-form-field appearance="fill">
+    <mat-label>Username</mat-label>
+    <input type="text" matInput [(ngModel)]="user.userName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input type="password" matInput [(ngModel)]="user.password">
+  </mat-form-field>
+
+  <button mat-flat-button color="accent" (click)="handleRegisterButton()">Sign me up!</button>
+</div>

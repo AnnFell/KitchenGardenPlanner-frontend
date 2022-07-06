@@ -30,6 +30,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatMenuModule} from "@angular/material/menu";
 import {MatExpansionModule} from "@angular/material/expansion";
 import { DetailComponent } from './detail/detail.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DetailComponent } from './detail/detail.component';
     PlannerFormComponent,
     PlannerListComponent,
     DetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
