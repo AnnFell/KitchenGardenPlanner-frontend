@@ -18,6 +18,10 @@ export class PlantService {
     return this.http.get('http://localhost:8080/api/plant/' + id);
   }
 
+  findHarvestablePlants(monthNumber: number) {
+    return this.http.get('http://localhost:8080/api/plant/harvest/' + monthNumber);
+  }
+
   save(plant: Plant) {
     console.log("saving", plant);
     return this.http.post('http://localhost:8080/api/plant', plant)
