@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-stock',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StockComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private authService: AuthService) {
   }
 
+  ngOnInit(): void {
+    this.checkIfLoggedIn();
+  }
+
+  checkIfLoggedIn() {
+    this.authService.checkIfLoggedIn();
+  }
 }

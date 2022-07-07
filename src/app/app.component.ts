@@ -22,6 +22,7 @@ export class AppComponent {
 
   handleLogOut() {
     sessionStorage.clear();
+    this.loggedIn = false;
     this.router.navigate(['']);
   }
 }
